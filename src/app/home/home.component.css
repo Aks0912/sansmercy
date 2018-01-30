@@ -1,0 +1,22 @@
+.title{
+    font-family:'Times Header';
+    font-size:40px;
+    color:#E0115F;
+}
+
+.linePink{
+    border-color:#E0115F;
+    margin-top: 0;
+}
+
+.colorBlack{
+    color: #000;
+}
+
+.colorGrey{
+    color: #808080;
+}
+
+.bold{
+    text-shadow: 0.5px 0.5px #808080;
+}

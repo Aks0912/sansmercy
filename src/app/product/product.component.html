@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-3" *ngFor = "let product of products| productFilter:listFilter; let i= index">
+        <div class="alignCenter"> 
+            <a [routerLink]="['/product', product.ProductId]"> 
+                <img [src]="product.ImageUrl" *ngIf="showImage" [style.width.px]="imageWidth" [style.height.px]="imageHeight" />
+            </a>
+        </div>
+        <hr class="removeMargin"/>
+        <div class="productTitle" ><a [routerLink]="['/product', product.ProductId]"> {{product.ProductName}} </a></div> 
+        <div class="subTitle"> {{product.Desc}} </div>
+        <div class="price">{{product.Price|currency:'INR'}}</div>
+        <div>
+           <edureka-star [rating]="product.StarRating" (ratingClicked)="onRatingClicked($event)"></edureka-star> 
+        </div>
+    </div>
+</div>
+
+

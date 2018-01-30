@@ -1,0 +1,53 @@
+<div id="selectedPrd" class="row" *ngFor = "let product of products">
+        <div class="col-md-1">
+            <img [src]="product.ImageUrl" height="60px"/>
+        </div>
+        <div class="col-md-5">
+            <img [src]="product.ImageUrl" height="500px"/>
+        </div>
+        <div class="col-md-6">
+            <p class="title">
+                {{product.ProductName}}              
+            </p>
+            <p class="subTitle">
+                {{product.Desc}}            
+            </p>
+            <div>
+                <edureka-star></edureka-star> 
+            </div>
+            <label class="price" style="margin-bottom:0">
+                {{product.Price|currency:'INR'}}                
+            </label>
+            <hr style="margin-top:0"/>
+            <div id="prdSize">
+                <label>Size:</label>
+                <select name="size">
+                    <option value="4">4 UK/India (36 EU)</option>
+                    <option value="5">5 UK/India (37 EU)</option>
+                    <option value="6">6 UK/India (38 EU)</option>
+                    <option value="7">7 UK/India (39 EU)</option>
+                    <option value="8">8 UK/India (40 EU)</option>
+                    <option value="9">9 UK/India (41 EU)</option>
+                </select>
+                <a href="#">Size Chart</a>
+            </div>
+            <div id="prdColor">
+                <div id="C1"></div>
+                <div id="C2"></div>
+                <div id="C3"></div>
+            </div>
+            <div>
+                <button class="btn btn-danger" (click)= "addToBag()">ADD TO BAG</button>
+                <br><br>
+            </div>
+            <ul>
+                <li>Uppers Include: Satin fabric in regal red and dazzling blue</li>
+                <li>Manmade lace in black and nude </li>
+                <li> Pointed-toe pumps with ankle strap and stay-put closures</li>
+                <li>Bow at side of ankle </li>
+                <li>3-3/4" covered heel</li>
+                <li>Fabric upper; manmade sole</li>
+                <li>Imported</li>
+            </ul>
+        </div>
+    </div>

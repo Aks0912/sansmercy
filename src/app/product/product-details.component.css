@@ -1,0 +1,56 @@
+#selectedPrd .title{
+    color:#e05038;
+    font-size:24px;
+    font-family:'Century Gothic';
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+#selectedPrd.subTitle{
+    font-family:arial;
+    font-size:14px;
+    color:#808080;
+    font-weight:normal;
+}
+
+#selectedPrd .price{
+    color:#334431;
+    font-size:28px;
+    font-family:Arial;
+    margin:15px 0 20px 0;
+}
+
+#selectedPrd ul li{
+    font-family:arial;
+    font-size:14px;
+    color:#000;
+    font-weight:normal;
+}
+
+#prdColor{
+    height: 30px;
+    width: 100%;
+    margin: 15px 0 15px;
+}
+
+#prdColor div{
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 15px;
+    position: relative;
+    float: left;
+    margin-right: 5px;
+}
+
+#prdColor #C1{
+    background-color: black;
+}
+
+#prdColor #C2{
+    background-color: brown;
+}
+
+#prdColor #C3{
+    background-color: beige;
+}

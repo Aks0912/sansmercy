@@ -1,0 +1,131 @@
+<div class="row">
+    <div class="col-md-6">  
+        <h3 class="text-center text-primary font-weight-bold">Sign up</h3>  
+        
+        <hr>
+        <form #form="ngForm" novalidate (submit)= "submitForm(form)">
+            <div class="form-row">
+                <div class="form-group col-md-6" [class.has-error] = "firstName.invalid">
+                    <label for="fName" class="control-label">FirstName</label>
+                    <input type="text" id="fName" name="firstName" 
+                                                    class="form-control" required 
+                                                    [ngModel] = "model.firstName"
+                                                    (ngModelChange) = "firstToUpper($event)"
+                                                    #firstName = "ngModel"/>
+                    <div class="alert alert-danger" *ngIf = "firstName.invalid">
+                        FirstName is required.
+                    </div>
+                </div>
+                <div class="form-group col-md-6" [class.has-error] = "lastName.invalid">
+                    <label for="lName" class="control-label">LastName</label>
+                    <input type="text" id="lName" name="lastName" 
+                                                    class="form-control" required 
+                                                    [(ngModel)] = "model.lastName"
+                                                    minlength="3"
+                                                    #lastName = "ngModel"/>
+                    <div class="alert alert-danger" *ngIf="lastName.invalid">
+                        Enter atleat 3 charecters.
+                    </div>
+                </div> 
+            </div> 
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                <label for="rdbMale">
+                    <input type="radio" name="gender" value="Male" [(ngModel)] = "model.gender">  Male
+                </label>
+                <label for="rdbFemale">&nbsp; &nbsp; &nbsp;
+                    <input type="radio" name="gender" value="Female" [(ngModel)] = "model.gender">  Female
+                </label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" [class.has-error] = "email.invalid">
+                    <label for="email" class="control-label">Email Id</label>
+                    <input type="text" id="email" name="email" 
+                                                    class="form-control" required 
+                                                    [(ngModel)] = "model.email"
+                                                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                                                    #email = "ngModel"/>
+                    <div class="alert alert-danger" *ngIf = "email.invalid">
+                        Enter valid email id.
+                    </div>
+                </div> 
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6" [class.has-error] = "password.invalid">
+                    <label for="password" class="control-label">Password</label>
+                    <input type="text" id="password" name="password" 
+                                                    class="form-control" required 
+                                                    [ngModel] = "model.password"
+                                                    #password = "ngModel"/>
+                    <div class="alert alert-danger" *ngIf = "password.invalid">
+                        valid password
+                    </div>
+                </div>
+                <div class="form-group col-md-6" [class.has-error] = "cpassword.invalid">
+                    <label for="cpassword" class="control-label">Confirm Password</label>
+                    <input type="text" id="cpassword" name="cpassword" 
+                                                    class="form-control" required 
+                                                    [(ngModel)] = "model.cpassword"
+                                                    #cpassword = "ngModel"/>
+                    <div class="alert alert-danger" *ngIf="cpassword.invalid">
+                        re-enter password
+                    </div>
+                </div> 
+            </div> 
+            <div class="form-row">
+                <div class="form-group col-md-12" [class.has-error] = "phone.invalid">
+                    <label for="phone" class="control-label">Phone No.</label>
+                    <input type="text" id="phone" name="phone" 
+                                                    class="form-control" required 
+                                                    [(ngModel)] = "model.phone"
+                                                    pattern="[0-9]{10}"
+                                                    #phone = "ngModel"/>
+                    <div class="alert alert-danger" *ngIf = "phone.invalid">
+                        Enter valid phone number. It must contain 10 digits.
+                    </div>
+                </div> 
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" [class.has-error]="listSelectionError">
+                    <label for="role" class="control-label">Role</label>
+                    <select class="form-control" name="role" 
+                                                    [(ngModel)] = "model.role"
+                                                    (blur) = "validatelistSelection($event)">
+                        <option value="default">Select Role</option>
+                        <option *ngFor="let role of roles">
+                            {{ role }}
+                        </option>
+                    </select>
+                    <div class="alert alert-danger" *ngIf="listSelectionError">
+                        Select role.
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="chkTerms">
+                        <input type="checkbox" id="chkTerms" name="terms" required [(ngModel)] = "model.terms"/> 
+                        I agree all the terms and privacy.
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-12 text-center">
+                    <br>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"> 
+        <br><br>
+        <!--<img src="../../assets/images/pen.jpg"/>-->
+        <div style="border-right:1px dashed #808080; height:500px; width:100%"></div>
+    </div>
+    <div class="col-md-4">  
+        <app-login></app-login>
+    </div>
+</div>
+        
